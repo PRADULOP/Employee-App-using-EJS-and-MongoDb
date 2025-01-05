@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Employee Home</title>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <div class="container">
+        <h1>Employee List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Location</th>
+                    <th>Salary</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% employees.forEach(emp => { %>
+                    <tr>
+                        <td><%= emp.employeeName %></td>  
+                        <td><%= emp.employeeDesignation %></td>
+                        <td><%= emp.employeeLocation %></td> 
+                        <td><%= emp.salary %></td>
+                        <td>
+                            <a href="/update/<%= emp._id %>" class="btn-update">Update</a> 
+                            <form action="/delete/<%= emp._id %>" method="post" style="display:inline;">
+                                <button type="submit" class="btn-delete">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>            
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Update Employee</title>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <div class="container">
+        <h1>Update Employee</h1>
+        <form action="/update/<%= employee._id %>" method="post"> 
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="employeeName" value="<%= employee.employeeName %>" required> 
+
+            <label for="designation">Designation:</label>
+            <input type="text" id="designation" name="employeeDesignation" value="<%= employee.employeeDesignation %>" required> 
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="employeeLocation" value="<%= employee.employeeLocation %>" required> 
+
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" value="<%= employee.salary %>" required>
+
+            <button type="submit">Update Employee</button>
+        </form>
+    </div>
+</body>
+</html>
